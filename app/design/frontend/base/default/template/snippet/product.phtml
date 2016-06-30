@@ -1,0 +1,46 @@
+<?php
+if (Mage::helper('snippet')->isEnable() && ($_product = $this->getProduct())):
+  $_helper = $this->helper('catalog/output');
+  ?>
+  <div itemscope itemtype="http://schema.org/Product">
+
+    <meta itemprop="name" content="<?php echo $this->htmlEscape($_product->getName()) ?>"/>
+
+    <?php if (Mage::helper('snippet')->showImage()) : ?>
+      <img itemprop="image" content="<?php echo Mage::helper('catalog/image')->init($_product, 'image') ?>"/>
+    <?php endif; ?>
+
+    <?php if (Mage::helper('snippet')->showDescription()) : ?>
+      <meta itemprop="description" content="<?php echo $this->htmlEscape($_product->getDescription()) ?>"/>
+    <?php endif; ?>
+
+    <?php if (Mage::helper('snippet')->showRatings()) : ?>
+      <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+        <meta itemprop="itemreviewed" content="<?php echo $this->htmlEscape($_product->getName()) ?>"/>
+        <meta itemprop="reviewCount"
+              content="<?php echo ($reviewCount = $_product->getRatingSummary()->getReviewsCount()) ? $reviewCount : 0; ?>"/>
+        <?php $summaryData = Mage::getModel('review/review_summary')->setStoreId(Mage::app()->getStore()->getId())->load($_product->getId()); ?>
+        <meta itemprop="ratingValue"
+              content="<?php echo $this->htmlEscape($summaryData->getRatingSummary() * 5) / 100; ?>"/>
+      </div>
+    <?php endif; ?>
+
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+      <?php if (Mage::helper('snippet')->showPrice()) : ?>
+        <meta itemprop="priceCurrency" content="<?php echo Mage::app()->getStore()->getCurrentCurrencyCode() ?>"/>
+        <meta itemprop="price" content="<?php echo round($_product->getFinalPrice()); ?>"/>
+      <?php endif; ?>
+      <?php if (Mage::helper('snippet')->showAvailability()) : ?>
+        <?php if ($_product->getIsInStock()) : ?>
+          <link itemprop="availability" content="InStock" href="http://schema.org/InStock">
+        <?php else: ?>
+          <link itemprop="availability" content="OutOfStock" href="http://schema.org/OutOfStock">
+        <?php endif; ?>
+      <?php endif; ?>
+    </div>
+
+  </div>
+
+<?php endif; ?>
+ 
+ 

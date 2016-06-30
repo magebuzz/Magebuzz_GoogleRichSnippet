@@ -1,0 +1,32 @@
+<?php if (Mage::helper('snippet')->showOrganization()): ?>
+	<div itemscope itemtype="http://data-vocabulary.org/Organization" class="head">
+		<a itemprop="url" href="<?php if(Mage::helper('snippet')->getLink()){
+			echo Mage::helper('snippet')->getLink();
+		} else{
+			echo Mage::app()->getStore()->getHomeUrl();
+		}
+		?>">
+			<div itemprop="name">
+				<strong><?php if(Mage::helper('snippet')->getName()){
+						echo Mage::helper('snippet')->getName();
+					} else{
+						echo Mage::app()->getStore()->getName();
+					}
+					?></strong>
+			</div>
+		</a>
+		<meta itemprop="logo" content="<?php if(Mage::helper('snippet')->getLogo()){
+			echo $this->htmlEscape(Mage::helper('snippet')->getLogo());
+		} else{
+			echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+		}
+		?>"/>
+		<div itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+			<meta itemprop="street-address" content="<?php echo Mage::helper('snippet')->getStreet(); ?>"/>
+			<meta itemprop="postal-code" content="<?php echo Mage::helper('snippet')->getPostalCode(); ?>"/>
+			<meta itemprop="region" content="<?php echo Mage::helper('snippet')->getRegion(); ?>"/>
+			<meta itemprop="country-name" content="<?php echo Mage::helper('snippet')->getCountry(); ?>"/>
+		</div>
+		<meta itemprop="telephone" content="<?php echo Mage::helper('snippet')->getTelephone() ?>"/>
+	</div>
+<?php endif; ?>

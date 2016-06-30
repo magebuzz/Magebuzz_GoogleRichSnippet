@@ -1,0 +1,35 @@
+<?php if (Mage::helper('snippet')->showCategory()): ?>
+  <?php
+  $_category = $this->getCategory();
+  if ($_category->getId()): ?>
+    <div itemscope itemtype="http://data-vocabulary.org/Review-aggregate">
+      <meta itemprop="itemreviewed" content="<?php echo Mage::registry('current_category')->getName() ?>"/>
+      <div itemprop="rating" itemscope itemtype="http://data-vocabulary.org/Rating">
+        <meta itemprop="average" content="<?php echo $_category->getRating() / 10; ?>"/>
+        <meta itemprop="best" content="10"/>
+      </div>
+      <meta itemprop="votes" content="<?php echo ($vote = $_category->getReviewsCount()) ? $vote : 0; ?>"/>
+    </div>
+		<?php if($_category->getFromPrice() > 0): ?>
+    <div itemscope itemtype="http://data-vocabulary.org/Offer-aggregate">
+      <meta itemprop="currency" content="<?php echo Mage::app()->getStore()->getCurrentCurrencyCode() ?>"/>
+      <meta itemprop="lowprice" content="<?php echo round($_category->getFromPrice(), 2); ?>"/>
+    </div>
+		  <?php endif; ?>
+  <?php else:
+	  $cate_id = Mage::registry('current_category')->getId();
+    $categoryModel = Mage::getModel('catalog/category')->load($cate_id);
+    $productColl = Mage::getModel('catalog/product')->getCollection()
+      ->addCategoryFilter($categoryModel)
+      ->addAttributeToSort('price', 'asc')
+      ->setPageSize(1)
+      ->load();
+    $_lowestProductPrice = $productColl->getFirstItem()->getPrice();
+    ?>
+    <div itemscope itemtype="http://data-vocabulary.org/Offer-aggregate">
+      <meta itemprop="currency" content="<?php echo Mage::app()->getStore()->getCurrentCurrencyCode() ?>"/>
+      <meta itemprop="lowprice" content="<?php echo round($_lowestProductPrice); ?>"/>
+    </div>
+
+  <?php endif; ?>
+<?php endif; ?>

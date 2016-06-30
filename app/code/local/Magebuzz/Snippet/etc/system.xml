@@ -1,0 +1,250 @@
+<?xml version="1.0" ?>
+<config>
+  <tabs>
+    <magebuzz translate="label">
+      <label>Magebuzz Extension</label>
+      <sort_order>400</sort_order>
+    </magebuzz>
+  </tabs>
+  <sections>
+    <snippet translate="label" module="snippet">
+      <class>separator-top</class>
+      <label>Google Rich Snippet</label>
+      <tab>magebuzz</tab>
+      <frontend_type>text</frontend_type>
+      <sort_order>299</sort_order>
+      <show_in_default>1</show_in_default>
+      <show_in_website>1</show_in_website>
+      <show_in_store>1</show_in_store>
+      <groups>
+        <general translate="label">
+          <label>General Configuration</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>1</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <enabled translate="label">
+              <label>Enable</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>1</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enabled>
+          </fields>
+        </general>
+
+        <product translate="label">
+          <label>Product Information</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>2</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <price translate="label">
+              <label>Show Product's Price</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>1</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </price>
+            <availability>
+              <label>Show Product's Stock Status</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>2</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </availability>
+            <ratings>
+              <label>Show Product's Rating</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>3</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </ratings>
+            <description>
+              <label>Show Product's Description</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>4</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </description>
+            <image>
+              <label>Show Product's Image</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>5</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </image>
+          </fields>
+        </product>
+
+        <link translate="label">
+          <label>Breadcrumbs</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>3</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <breadcrumbs translate="label">
+              <label>Enable Breadcrumbs</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>1</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </breadcrumbs>
+          </fields>
+        </link>
+
+        <organization translate="label">
+          <label>Store Information</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>4</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+
+            <enabled translate="label">
+              <label>Show Store Information</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>1</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enabled>
+
+            <name translate="label">
+              <label>Name</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>2</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </name>
+            <logo translate="label">
+              <label>Logo</label>
+              <frontend_type>image</frontend_type>
+              <backend_model>adminhtml/system_config_backend_image_pdf</backend_model>
+              <upload_dir config="system/filesystem/media" scope_info="1">logo</upload_dir>
+              <base_url type="media" scope_info="1">logo</base_url>
+              <sort_order>3</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </logo>
+
+            <street translate="label">
+              <label>Street Address</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>4</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>ex:112 West 34th Street, 18th Flr</comment>
+            </street>
+
+            <telephone translate="label">
+              <label>Telephone</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>5</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>ex: 555 999</comment>
+            </telephone>
+
+            <link translate="label">
+              <label>Link website</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>6</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>ex:http://abc.com</comment>
+            </link>
+
+            <postalcode translate="label">
+              <label>Postal Code</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>7</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>ex:10120</comment>
+            </postalcode>
+
+            <region translate="label">
+              <label>Region</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>8</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>ex:New York</comment>
+            </region>
+
+            <country translate="label">
+              <label>Country Name</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>9</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>ex:USA</comment>
+            </country>
+          </fields>
+        </organization>
+
+        <category translate="label">
+          <label>Category Information</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>5</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <enabled translate="label">
+              <label>Enable</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>1</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </enabled>
+
+            <child_category>
+              <label>Enable recursive calculation for category</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>2</sort_order>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+              <comment>If you select "YES ", all structured data of child-categories will be used to calculate structured data for parent category</comment>
+            </child_category>
+          </fields>
+        </category>
+      </groups>
+    </snippet>
+  </sections>
+</config>

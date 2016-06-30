@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<config>
+  <menu>
+    <snippet module="snippet" translate="title">
+      <title>Rich Snippet</title>
+      <sort_order>71</sort_order>
+      <children>
+        <snippet module="snippet" translate="title">
+          <title>Generate Category Structured Data</title>
+          <sort_order>0</sort_order>
+          <action>snippetadmin/adminhtml_snippet</action>
+        </snippet>
+        <settings module="snippet" translate="title">
+          <title>Configuration</title>
+          <sort_order>1000</sort_order>
+          <action>adminhtml/system_config/edit/section/snippet</action>
+        </settings>
+      </children>
+    </snippet>
+  </menu>
+  <acl>
+    <resources>
+      <all>
+        <title>Allow Everything</title>
+      </all>
+      <admin>
+        <children>
+          <system>
+            <children>
+              <config>
+                <children>
+                  <snippet module="snippet" translate="title">
+                    <title>Rich Snippet</title>
+                    <sort_order>71</sort_order>
+                  </snippet>
+                </children>
+              </config>
+            </children>
+          </system>
+          <snippet module="snippet" translate="title">
+            <title>Snippet</title>
+            <sort_order>71</sort_order>
+            <children>
+              <snippet module="snippet" translate="title">
+                <title>Generate Category Structured Data</title>
+                <sort_order>0</sort_order>
+              </snippet>
+              <settings module="snippet" translate="title">
+                <title>Configuration</title>
+                <sort_order>1000</sort_order>
+              </settings>
+            </children>
+          </snippet>
+        </children>
+      </admin>
+    </resources>
+  </acl>
+</config>

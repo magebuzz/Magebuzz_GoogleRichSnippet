@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <default>
+    <reference name="head">
+      <block type="snippet/organization" name="mr.snippet.organization.head"
+             template="snippet/organization.phtml"/>
+    </reference>
+    <reference name="breadcrumbs">
+      <action method="setTemplate">
+        <template>snippet/breadcrumbs.phtml</template>
+      </action>
+    </reference>
+  </default>
+  <catalog_product_view>
+    <reference name="before_body_end">
+      <block type="page/html_wrapper" name="product.info.addtocart.snippet.snippet">
+        <block type="snippet/product" name="snippet" template="snippet/product.phtml"/>
+      </block>
+    </reference>
+  </catalog_product_view>
+
+  <catalog_category_view>
+    <reference name="content">
+      <block type="snippet/category" name="snippet" template="snippet/category.phtml"/>
+    </reference>
+  </catalog_category_view>
+
+</layout>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Magebuzz_Snippet>
+      <active>true</active>
+      <codePool>local</codePool>
+      <depends>
+        <Mage_Catalog/>
+        <Mage_Review/>
+      </depends>
+    </Magebuzz_Snippet>
+  </modules>
+</config>
